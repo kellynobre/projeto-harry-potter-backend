@@ -5,6 +5,10 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Servidor do Harry Potter Backend está online.");
+});
+
 app.get("/characters", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
