@@ -1,10 +1,14 @@
 import express from "express";
 import cors from "cors";
-import fetch from "node-fetch"; 
+import fetch from "node-fetch";
 
 const app = express();
-app.use(cors());
 
+app.use(cors({
+  origin: "https://stellar-ganache-7bfbe0.netlify.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+}));
 
 app.get("/", (req, res) => {
   res.send("Servidor do Harry Potter Backend está online 🪄");
